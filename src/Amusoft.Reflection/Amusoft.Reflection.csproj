@@ -6,8 +6,8 @@
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<Company />
 		<Authors>Andreas Müller</Authors>
-		<PackageLicenseUrl>https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE.MD</PackageLicenseUrl>
-		<PackageProjectUrl>https://github.com/taori/Amusoft.Reflection/</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/taori/Amusoft.Reflection</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/taori/Amusoft.Reflection.git</RepositoryUrl>
 		<PackageTags>property accessors reflection utility</PackageTags>
 		<PackageReleaseNotes>First release with a utility class to access properties by names in a highly performant way.</PackageReleaseNotes>
