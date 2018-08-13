@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26621.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amusoft.Reflection", "src\Amusoft.Reflection\Amusoft.Reflection.csproj", "{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amusoft.Reflection.Test", "tests\Amusoft.Reflection.Test\Amusoft.Reflection.Test.csproj", "{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44892A7D-59B3-4A61-986A-F7A6EE42AA28}
+	EndGlobalSection
+EndGlobal
