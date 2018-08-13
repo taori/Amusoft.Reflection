@@ -6,15 +6,15 @@ using System;
 
 namespace Amusoft.Reflection.Emit
 {
-	public class ReflectionOptimizerException : Exception
+	public class TypeEmitterException : Exception
 	{
-		public ReflectionOptimizerException(string message, string propertyName)
+		public TypeEmitterException(string message, string propertyName)
 			: base(message)
 		{
 			PropertyName = propertyName;
 		}
 
-		public ReflectionOptimizerException(string message)
+		public TypeEmitterException(string message)
 			: base(message)
 		{
 		}

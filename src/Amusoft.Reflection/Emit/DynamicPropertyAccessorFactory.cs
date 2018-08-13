@@ -11,7 +11,7 @@ namespace Amusoft.Reflection.Emit
 {
 	public class DynamicPropertyAccessorFactory
 	{
-		public static DynamicPropertyAccessor Create<TType>(Expression<Func<TType, object>> propertyExpression)
+		public static IDynamicPropertyAccessor Create<TType>(Expression<Func<TType, object>> propertyExpression)
 		{
 			if (propertyExpression == null)
 				throw new ArgumentException($"{nameof(propertyExpression)}", nameof(propertyExpression));
@@ -50,7 +50,7 @@ namespace Amusoft.Reflection.Emit
 		/**
 		 * OptimizationTests : Dictionary lookup takes longer than creating a new object and attempting to regenerate the type.
 		 */
-		public static DynamicPropertyAccessor Create(Type targetType, string propertyName)
+		public static IDynamicPropertyAccessor Create(Type targetType, string propertyName)
 		{
 			var key = new KeyValuePair<Type, string>(targetType, propertyName);
 			if (Cache.TryGetValue(key, out var accessor))

@@ -16,7 +16,6 @@ namespace Amusoft.Reflection.Emit
 			return string.Format($"{nameof(DynamicPropertyAccessor)}_{0}_{1}", targetType.FullName.Replace('.', '_'), propertyName);
 		}
 
-
 		private static ModuleBuilder GetDynamicModule(AssemblyBuilder newAssembly)
 		{
 			lock (typeof(DynamicTypeEmitter))
@@ -29,11 +28,11 @@ namespace Amusoft.Reflection.Emit
 		{
 			lock (typeof(DynamicTypeEmitter))
 			{
-				var assemblyName = new AssemblyName {Name = "DynamicPropertyAccessorAssembly"};
+				var assemblyName = new AssemblyName { Name = "DynamicPropertyAccessorAssembly" };
 				return AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
 			}
 		}
-		
+
 		public static Type EmitType(Type targetType, string propertyName)
 		{
 			var newAssembly = GetDynamicAssembly();
@@ -44,24 +43,16 @@ namespace Amusoft.Reflection.Emit
 			dynamicType.AddInterfaceImplementation(typeof(IPropertyDelegate));
 			dynamicType.DefineDefaultConstructor(MethodAttributes.Public);
 
-			#region Getter Method
+			GenerateGetter(dynamicType, targetType, propertyName);
+			GenerateSetter(dynamicType, targetType, propertyName);
 
-			var getParamTypes = new[] { typeof(object) };
-			var getReturnType = typeof(object);
-			var getMethod = dynamicType.DefineMethod(nameof(IPropertyDelegate.Get),
-				MethodAttributes.Public | MethodAttributes.Virtual,
-				getReturnType,
-				getParamTypes);
+			// Load the type
+			return dynamicType.CreateTypeInfo().AsType();
+		}
 
-			var getGenerator = getMethod.GetILGenerator();
-
-			GenerateGetMethod(getGenerator, targetType, propertyName);
-
-			#endregion
-
-			#region Setter Method
-
-			var setParamTypes = new[] { typeof(object), typeof(object) };
+		private static void GenerateSetter(TypeBuilder dynamicType, Type targetType, string propertyName)
+		{
+			var setParamTypes = new[] {typeof(object), typeof(object)};
 
 			var setMethod = dynamicType.DefineMethod(nameof(IPropertyDelegate.Set),
 				MethodAttributes.Public | MethodAttributes.Virtual,
@@ -70,15 +61,24 @@ namespace Amusoft.Reflection.Emit
 
 			var setGenerator = setMethod.GetILGenerator();
 
-			GenerateSetMethod(setGenerator, targetType, propertyName);
-
-			#endregion
-
-			// Load the type
-			return dynamicType.CreateTypeInfo().AsType();
+			EmitSetter(setGenerator, targetType, propertyName);
 		}
 
-		private static void GenerateGetMethod(ILGenerator getGenerator, Type targetType, string propertyName)
+		private static void GenerateGetter(TypeBuilder dynamicType, Type targetType, string propertyName)
+		{
+			var getParamTypes = new[] {typeof(object)};
+			var getReturnType = typeof(object);
+			var getMethod = dynamicType.DefineMethod(nameof(IPropertyDelegate.Get),
+				MethodAttributes.Public | MethodAttributes.Virtual,
+				getReturnType,
+				getParamTypes);
+
+			var getGenerator = getMethod.GetILGenerator();
+
+			EmitGetter(getGenerator, targetType, propertyName);
+		}
+
+		private static void EmitGetter(ILGenerator getGenerator, Type targetType, string propertyName)
 		{
 			var privateGetMethod = CompatTypeExtensions.GetMethod(targetType, "get_" + propertyName);
 
@@ -111,7 +111,7 @@ namespace Amusoft.Reflection.Emit
 			getGenerator.Emit(OpCodes.Ret);
 		}
 
-		private static void GenerateSetMethod(ILGenerator setGenerator, Type targetType, string propertyName)
+		private static void EmitSetter(ILGenerator setGenerator, Type targetType, string propertyName)
 		{
 			var privateSetMethod = CompatTypeExtensions.GetMethod(targetType, "set_" + propertyName);
 			if (privateSetMethod != null)

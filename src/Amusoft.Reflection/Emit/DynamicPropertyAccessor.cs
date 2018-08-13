@@ -10,77 +10,62 @@ namespace Amusoft.Reflection.Emit
 {
 	// inspired by http://stackoverflow.com/questions/1960692/practical-example-of-dynamic-method/1960737#1960737
 
-	[DebuggerDisplay("DPA: {PropertyName}")]
-	public class DynamicPropertyAccessor
+	[DebuggerDisplay("{ToDebug()}")]
+	internal class DynamicPropertyAccessor : IDynamicPropertyAccessor
 	{
+		private string ToDebug()
+		{
+			return $"{TargetType}.{PropertyName} {(CanRead ? ", readable" : string.Empty)} {(CanWrite ? ", writeable" : string.Empty)}";
+		}
+
 		internal DynamicPropertyAccessor(Type targetType, string propertyName)
 		{
-			_targetType = targetType;
-			_propertyName = propertyName;
+			TargetType = targetType;
+			PropertyName = propertyName;
 			var propertyInfo = CompatTypeExtensions.GetProperty(targetType, propertyName);
 			if (propertyInfo == null)
 			{
-				throw new ReflectionOptimizerException(string.Format($"Property \"{propertyName}\" is not found in type {targetType}.", propertyName, targetType));
+				throw new TypeEmitterException(string.Format($"Property \"{propertyName}\" is not found in type \"{targetType}\".", propertyName, targetType));
 			}
-			_canRead = propertyInfo.CanRead;
-			_canWrite = propertyInfo.CanWrite;
-			_propertyType = propertyInfo.PropertyType;
+			CanRead = propertyInfo.CanRead;
+			CanWrite = propertyInfo.CanWrite;
+			PropertyType = propertyInfo.PropertyType;
 			PropertyDelegate = PropertyDelegateFactory.CreateAccessor(targetType, propertyName);
 		}
 
-		private readonly string _propertyName;
-		public string PropertyName
-		{
-			get { return _propertyName; }
-		}
+		public string PropertyName { get; }
 
 		protected IPropertyDelegate PropertyDelegate;
 
-		private readonly bool _canRead;
-		public bool CanRead
-		{
-			get { return _canRead; }
-		}
+		public bool CanRead { get; }
 
-		private readonly bool _canWrite;
-		public bool CanWrite
-		{
-			get { return _canWrite; }
-		}
+		public bool CanWrite { get; }
 
-		private readonly Type _targetType;
-		public Type TargetType
-		{
-			get { return _targetType; }
-		}
+		public Type TargetType { get; }
 
-		private readonly Type _propertyType;
-		public Type PropertyType
-		{
-			get { return _propertyType; }
-		}
+		public Type PropertyType { get; }
 
 		public virtual object Get(object target)
 		{
-			if (_canRead)
+			if (CanRead)
 			{
 				return PropertyDelegate.Get(target);
 			}
 			else
 			{
-				throw new ReflectionOptimizerException($"Property \"{_propertyName}\" does not have method {nameof(Get)}.", _propertyName);
+				throw new TypeEmitterException($"Property \"{PropertyName}\" does not have method {nameof(Get)}.", PropertyName);
 			}
 		}
 	
 		public virtual void Set(object target, object value)
 		{
-			if (_canWrite)
+			if (CanWrite)
 			{
 				PropertyDelegate.Set(target, value);
 			}
 			else
 			{
-				throw new ReflectionOptimizerException($"Property \"{_propertyName}\" does not have method {nameof(Set)}.", _propertyName);
+				throw new TypeEmitterException($"Property \"{PropertyName}\" does not have method {nameof(Set)}.", PropertyName);
 			}
 		}
 	}

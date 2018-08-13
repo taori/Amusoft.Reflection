@@ -14,7 +14,7 @@ namespace Amusoft.Reflection.Emit
 			var accessor = Activator.CreateInstance(type) as IPropertyDelegate;
 			if (accessor == null)
 			{
-				throw new ReflectionOptimizerException($"Unable to create {nameof(IPropertyDelegate)} for property {propertyName} of {targetType.FullName}.");
+				throw new TypeEmitterException($"Unable to create {nameof(IPropertyDelegate)} for property {propertyName} of {targetType.FullName}.");
 			}
 
 			return accessor;
