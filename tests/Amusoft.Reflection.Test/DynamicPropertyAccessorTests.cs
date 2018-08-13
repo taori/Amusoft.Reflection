@@ -179,7 +179,7 @@ namespace Amusoft.Reflection.Test
 		[Test]
 		public void PerformanceTest()
 		{
-			var iterations = 1000000;
+			var iterations = 10_000_000;
 			var testObjects = Enumerable.Range(0, iterations).Select(i => new TestObject()).ToList();
 			TimeSpan reflectionTimeSpan;
 			TimeSpan dynPropertyAccessorTimeSpan;
@@ -266,6 +266,10 @@ namespace Amusoft.Reflection.Test
 
 				reflectionTimeSpan = measurement.Elapsed;
 			}
+
+			Console.WriteLine($"clrAccessorTimespan: {clrAccessorTimespan.TotalMilliseconds} ms");
+			Console.WriteLine($"reflection: {reflectionTimeSpan.TotalMilliseconds} ms");
+			Console.WriteLine($"dynPropertyAccessorTimeSpan: {dynPropertyAccessorTimeSpan.TotalMilliseconds} ms");
 
 			Assert.GreaterOrEqual(reflectionTimeSpan.TotalMilliseconds, dynPropertyAccessorTimeSpan.TotalMilliseconds);
 			Assert.GreaterOrEqual(dynPropertyAccessorTimeSpan.TotalMilliseconds, clrAccessorTimespan.TotalMilliseconds);
