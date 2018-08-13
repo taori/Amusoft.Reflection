@@ -12,6 +12,8 @@
 		<PackageTags>property accessors reflection utility</PackageTags>
 		<PackageReleaseNotes>First release with a utility class to access properties by names in a highly performant way.</PackageReleaseNotes>
 		<Copyright>© Andreas Müller</Copyright>
+		<Description>This library contains a way of accessing property setters and getters in a way which is more efficient than reflection, as well as other reflection based functionality</Description>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1'">
