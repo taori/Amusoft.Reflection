@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright 2018 Andreas Müller
+// This file is a part of Amusoft and is licensed under Apache 2.0
+// See https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE for details.
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -179,7 +183,7 @@ namespace Amusoft.Reflection.Test
 		[Test]
 		public void PerformanceTest()
 		{
-			var iterations = 10_000_000;
+			var iterations = 1_000_000;
 			var testObjects = Enumerable.Range(0, iterations).Select(i => new TestObject()).ToList();
 			TimeSpan reflectionTimeSpan;
 			TimeSpan dynPropertyAccessorTimeSpan;

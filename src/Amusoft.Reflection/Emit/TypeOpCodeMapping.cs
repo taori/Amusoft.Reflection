@@ -1,8 +1,12 @@
-﻿using System;
+﻿// Copyright 2018 Andreas Müller
+// This file is a part of Amusoft and is licensed under Apache 2.0
+// See https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE for details.
+
+using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace Amusoft.Reflection
+namespace Amusoft.Reflection.Emit
 {
 	public static class TypeOpCodeMapping
 	{

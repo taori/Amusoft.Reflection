@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Shortcut/@EntryValue">fh</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Text/@EntryValue">// Copyright 2018 Andreas Müller&#xD;
+// This file is a part of Amusoft.Reflection and is licensed under MIT&#xD;
+// See https://github.com/taori/Amusoft/blob/master/LICENSE.MD for details</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Scope/=558F05AA0DE96347816FF785232CFB2A/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Scope/=558F05AA0DE96347816FF785232CFB2A/Type/@EntryValue">InCSharpTypeAndNamespace</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=500EC997163F284AB507A12FC730D06A/Scope/=558F05AA0DE96347816FF785232CFB2A/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String></wpf:ResourceDictionary>

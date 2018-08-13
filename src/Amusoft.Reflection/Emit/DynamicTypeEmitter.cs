@@ -1,11 +1,13 @@
-﻿using System;
+﻿// Copyright 2018 Andreas Müller
+// This file is a part of Amusoft and is licensed under Apache 2.0
+// See https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE for details.
+
+using System;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
 using Amusoft.Reflection.Compatibility;
-using Amusoft.Reflection.Emit;
 
-namespace Amusoft.Reflection
+namespace Amusoft.Reflection.Emit
 {
 	internal static class DynamicTypeEmitter
 	{
