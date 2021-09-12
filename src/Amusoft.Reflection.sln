@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26621.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amusoft.Reflection", "src\Amusoft.Reflection\Amusoft.Reflection.csproj", "{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amusoft.Reflection", "Amusoft.Reflection\Amusoft.Reflection.csproj", "{44BB6F75-7C7D-4B5D-8C9D-38DAEDF3A6A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amusoft.Reflection.Test", "tests\Amusoft.Reflection.Test\Amusoft.Reflection.Test.csproj", "{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amusoft.Reflection.Test", "..\tests\Amusoft.Reflection.Test\Amusoft.Reflection.Test.csproj", "{27101E6A-FEC5-4E5F-874D-CEBAD8BF1583}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
