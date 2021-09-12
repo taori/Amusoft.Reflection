@@ -1,19 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard1.1;netstandard2.0;net45</TargetFrameworks>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Company />
+		<TargetFrameworks>netstandard1.1;netstandard2.0;net45;net461;net471;netstandard2.1;net5.0</TargetFrameworks>
+		<VersionPrefix>1.0.2</VersionPrefix>
+		<VersionSuffix>beta</VersionSuffix>
+
+		<Copyright>Copyright © Andreas Müller 2018</Copyright>
+		<PackageId>Amusoft.Reflection</PackageId>
 		<Authors>Andreas Müller</Authors>
-		<PackageLicenseUrl>https://github.com/taori/Amusoft.Reflection/blob/master/LICENSE</PackageLicenseUrl>
-		<PackageProjectUrl>https://github.com/taori/Amusoft.Reflection</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/taori/Amusoft.Reflection.git</RepositoryUrl>
+		<Product>Amusoft.Reflection</Product>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageTags>property accessors reflection utility</PackageTags>
 		<PackageReleaseNotes>First release with a utility class to access properties by names in a highly performant way.</PackageReleaseNotes>
-		<Copyright>© Andreas Müller</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 		<Description>This library contains a way of accessing property setters and getters in a way which is more efficient than reflection, as well as other reflection based functionality</Description>
-		<Version>1.0.1</Version>
+		<PackageIcon>packageIcon.png</PackageIcon>
+
+		<IsPackable>true</IsPackable>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/taori/Amusoft.Reflection</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/taori/Amusoft.Reflection.git</RepositoryUrl>		
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1'">
@@ -25,9 +32,6 @@
 		<PackageReference Include="System.Runtime" Version="4.3.0" />
 		<PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
 		<PackageReference Include="System.Reflection.Emit.ILGeneration" Version="4.3.0" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Extensions\" />
 	</ItemGroup>
 
 </Project>
