@@ -22,7 +22,11 @@
 		<PackageProjectUrl>https://github.com/taori/Amusoft.Reflection</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/taori/Amusoft.Reflection.git</RepositoryUrl>		
 	</PropertyGroup>
-
+	
+	<ItemGroup>
+		<None Include="packageIcon.png" Pack="true" PackagePath=""/>
+	</ItemGroup>
+	 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.1'">
 		<PackageReference Include="System.Runtime" Version="4.3.0" />
 		<PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
