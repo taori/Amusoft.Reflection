@@ -9,3 +9,12 @@
 ## Description
 
 Extensions based around the reflection topic. The main reason this package exists is the need for property getting/setting with a performance faster than reflection through the use of compiled expressions
+
+## How to use
+
+```cs
+var testInstance = new TestObject();
+var accessorSomeInt = DynamicPropertyAccessorFactory.Create<TestObject>(d => d.SomeInt);
+var readValue = (int)accessorSomeInt.Get(testInstance);
+accessorSomeInt.Set(testInstance, 5);
+```
